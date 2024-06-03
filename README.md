@@ -1,1 +1,1 @@
-# template.react-app.vite
+# snippet.test-task-abcp

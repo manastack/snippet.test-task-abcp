@@ -1,0 +1,81 @@
+{
+  "name": "snippet.test-task-abcp",
+  "description": "A Vite template for React apps with TypeScript, ESLint, Prettier, and React",
+  "author": "Kirilenko",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "setup": "./scripts/nvm-use.sh && pnpm i && pnpm audit",
+    "dev": "vite --port 3001",
+    "lint:styles": "stylelint --fix 'src/**/**.{css,style.ts}'",
+    "lint:scripts": "eslint . --fix 'src/**/**.{ts,tsx}' --report-unused-disable-directives --max-warnings 0",
+    "pretty": "prettier --write 'src/**/**.{ts,tsx,css,style.ts}'",
+    "format": "pnpm lint:styles && pnpm lint:scripts && pnpm pretty && scripts/postformat.sh",
+    "build:dev": "tsc && vite build --mode=dev",
+    "build:stage": "tsc && vite build --mode=stage",
+    "build:main": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy:firebase:dev": "pnpm build:dev && firebase deploy --only hosting:dev",
+    "deploy:firebase:stage": "pnpm build:stage && firebase deploy --only hosting:stage",
+    "deploy:firebase:main": "pnpm build:main && firebase deploy --only hosting:main"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3",
+    "twin.macro": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-react-jsx": "^7.19.0",
+    "@emotion/babel-plugin-jsx-pragmatic": "^0.2.0",
+    "@stylelint/postcss-css-in-js": "^0.38.0",
+    "@types/babel__core": "^7.20.1",
+    "@types/node": "^20.4.2",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.12",
+    "babel-plugin-macros": "^3.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-hooks": "^0.4.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "4",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "jsdom": "^24.1.0",
+    "postcss": "^8.4.31",
+    "postcss-syntax": "^0.36.2",
+    "prettier": ">=2.2.0 <2.3",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "stylelint": "^16.6.1",
+    "stylelint-config-recommended": "^14.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-order-config-standard": "^0.1.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-tsconfig-paths": "^4.2.0"
+  },
+  "resolutions": {
+    "ws": ">=8.17.1"
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "emotion",
+      "config": "./tailwind.config.cjs"
+    }
+  }
+}

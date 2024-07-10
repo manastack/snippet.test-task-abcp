@@ -3,6 +3,8 @@ const internalPackages = '@app|@entities|@modules|@pages|@public|@shared'
 const styleExtensions = '\\.style$|\\.s?css$'
 
 const rules = {
+  '@typescript-eslint/no-unnecessary-type-constraint': 'off', // - for unnecessary type constraints
+
   '@typescript-eslint/no-unused-expressions': 'off', // - for <condition> && <expression>
 
   'hooks/sort': [
@@ -65,6 +67,8 @@ const rules = {
     {},
     { endOfLine: 'auto', usePrettierrc: true },
   ],
+
+  'react/button-has-type': 'off', // - for button w/o type
 
   'react/function-component-definition': 'off', // - for defining component as a function-declaration
 

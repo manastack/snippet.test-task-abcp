@@ -12,7 +12,7 @@
     "lint:styles": "stylelint --fix 'src/**/**.{css,style.ts}'",
     "lint:scripts": "eslint . --fix 'src/**/**.{ts,tsx}' --report-unused-disable-directives --max-warnings 0",
     "pretty": "prettier --write 'src/**/**.{ts,tsx,css,style.ts}'",
-    "format": "pnpm lint:styles && pnpm lint:scripts && pnpm pretty && scripts/postformat.sh",
+    "format": "pnpm lint:styles && pnpm lint:scripts && pnpm pretty && ./scripts/postformat.sh",
     "build:dev": "tsc && vite build --mode=dev",
     "build:stage": "tsc && vite build --mode=stage",
     "build:main": "tsc && vite build",
@@ -24,10 +24,14 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@tanstack/react-query": "^4.33.0",
+    "@tanstack/react-query-devtools": "^4.33.0",
+    "axios": "^1.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.3.3",
-    "twin.macro": "^3.4.0"
+    "twin.macro": "^3.4.0",
+    "zod": "^3.22.3"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
